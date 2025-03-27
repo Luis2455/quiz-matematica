@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Matemática - Estilo ENEM</title>
+    <title>SAEB QUESTOES</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,6 @@
             height: 100vh;
             margin: 0;
         }
-
         .container {
             text-align: center;
             background-color: #fff;
@@ -24,26 +23,9 @@
             width: 80%;
             max-width: 600px;
         }
-
-        h1 {
-            color: #333;
-        }
-
-        #timer-container {
-            font-size: 1.2em;
-            margin-top: 20px;
-        }
-
-        .correct {
-            background-color: #4CAF50 !important;
-            color: white;
-        }
-
-        .incorrect {
-            background-color: #f44336 !important;
-            color: white;
-        }
-
+        h1 { color: #333; }
+        .correct { background-color: #4CAF50 !important; color: white; }
+        .incorrect { background-color: #f44336 !important; color: white; }
         #answers li {
             background-color: #f1f1f1;
             margin: 10px 0;
@@ -52,11 +34,7 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-
-        #answers li:hover {
-            background-color: #ddd;
-        }
-
+        #answers li:hover { background-color: #ddd; }
         button {
             background-color: #4CAF50;
             color: white;
@@ -67,21 +45,17 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .hidden {
-            display: none;
-        }
+        button:hover { background-color: #45a049; }
+        .hidden { display: none; }
+        img { max-width: 60%; height: auto; display: block; margin: 5px auto; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Quiz de Matemática - Estilo ENEM</h1>
+        <h1>Quiz SAEB</h1>
         <div id="quiz-container">
             <p id="question"></p>
+            <div id="image-container"></div>
             <ul id="answers"></ul>
         </div>
         <div id="score-container" class="hidden">
@@ -89,57 +63,82 @@
             <p id="score"></p>
             <button onclick="restartQuiz()">Reiniciar Quiz</button>
         </div>
-        <div id="timer-container">
-            <p>Tempo restante: <span id="timer">05:00</span></p>
-        </div>
     </div>
 
     <script>
         let currentQuestionIndex = 0;
         let score = 0;
-        let timer;
-        let timeRemaining = 300;
 
         const questions = [
-            { question: "150 + 350 = ?", answers: [450, 500, 550, 600], correct: 500 },
-            { question: "Qual a raiz quadrada de 144?", answers: [10, 11, 12, 13], correct: 12 },
-            { question: "Se um carro percorre 60km em 1 hora, quantos km ele percorre em 3 horas?", answers: [120, 150, 180, 200], correct: 180 },
-            { question: "Qual o valor de 8 × 7?", answers: [54, 56, 58, 60], correct: 56 },
-            { question: "Um ângulo reto tem quantos graus?", answers: [45, 90, 120, 180], correct: 90 },
-            { question: "Se um quadrado tem lado de 5cm, qual sua área?", answers: [10, 15, 20, 25], correct: 25 },
-            { question: "O dobro de 25 é?", answers: [50, 55, 60, 65], correct: 50 },
-            { question: "Em um sorteio, há 20 bolas numeradas de 1 a 20. Qual a probabilidade de tirar um número par?", answers: ["1/2", "2/3", "3/5", "1/3"], correct: "1/2" },
-            { question: "Quanto é 15% de 200?", answers: [20, 25, 30, 35], correct: 30 },
-            { question: "Quanto é 3³?", answers: [9, 18, 27, 36], correct: 27 }
-        ];
-
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const remainingSeconds = seconds % 60;
-            return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
-        }
-
-        function updateTimer() {
-            if (timeRemaining <= 0) {
-                clearInterval(timer);
-                showScore();
-            } else {
-                timeRemaining--;
-                document.getElementById("timer").textContent = formatTime(timeRemaining);
+            { 
+                question: "No jogo, duas equipes posicionam suas peças no plano cartesiano usando 5 coordenadas cada. As coordenadas P, Q, R, S e T da equipe 1 são, respectivamente:",
+                image: "questao1.jpg",
+                answers: [
+                    "(A) (2,1); (1,3); (3,2); (-2,-3) e (4,2).",
+                    "(B) (2,1); (-1,3); (-3,2); (-2,-4) e (4,-2).",
+                    "(C) (1,2); (-1,-3); (3,2); (2,3) e (-4,2).",
+                    "(D) (2,1); (1,-3); (-3,2); (-2,-3) e (4,-2).",
+                    "(E) (1,2); (-1,3); (-3,2); (2,-3) e (4,2)."
+                ],
+                correct: "(D) (2,1); (1,-3); (-3,2); (-2,-3) e (4,-2)."
+            },
+            { 
+                question: "Uma loja oferece um desconto de 20% em um produto que custa R$ 150,00. Qual será o preço final do produto após o desconto?",
+                image: "",
+                answers: [
+                    "(A) R$ 120,00",
+                    "(B) R$ 130,00",
+                    "(C) R$ 135,00",
+                    "(D) R$ 140,00",
+                    "(E) R$ 125,00"
+                ],
+                correct: "(A) R$ 120,00"
+            },
+            { 
+                question: "A função f(x) = 2x + 3 representa o crescimento de uma planta ao longo do tempo. Se x representa os dias, qual será a altura da planta no 10º dia?",
+                image: "",
+                answers: [
+                    "(A) 20 cm",
+                    "(B) 22 cm",
+                    "(C) 23 cm",
+                    "(D) 24 cm",
+                    "(E) 25 cm"
+                ],
+                correct: "(C) 23 cm"
+            },
+            { 
+                question: "Qual é o valor de x na equação 3x - 5 = 10?",
+                image: "",
+                answers: [
+                    "(A) 3",
+                    "(B) 5",
+                    "(C) 10",
+                    "(D) 15",
+                    "(E) 7"
+                ],
+                correct: "(B) 5"
+            },
+            { 
+                question: "Se um carro percorre 120 km em 2 horas, qual é a sua velocidade média?",
+                image: "",
+                answers: [
+                    "(A) 40 km/h",
+                    "(B) 50 km/h",
+                    "(C) 60 km/h",
+                    "(D) 70 km/h",
+                    "(E) 80 km/h"
+                ],
+                correct: "(C) 60 km/h"
             }
-        }
-
-        function startTimer() {
-            clearInterval(timer);
-            timer = setInterval(updateTimer, 1000);
-        }
+        ];
 
         function displayQuestion() {
             const question = questions[currentQuestionIndex];
             document.getElementById("question").textContent = question.question;
+            const imageContainer = document.getElementById("image-container");
+            imageContainer.innerHTML = question.image ? `<img src="${question.image}" alt="Imagem da questão">` : "";
             const answersList = document.getElementById("answers");
             answersList.innerHTML = "";
-
             question.answers.forEach(answer => {
                 const li = document.createElement("li");
                 li.textContent = answer;
@@ -150,56 +149,23 @@
 
         function checkAnswer(selectedAnswer, liElement) {
             const correctAnswer = questions[currentQuestionIndex].correct;
-            
-            // Desativar cliques após a escolha
-            document.querySelectorAll("#answers li").forEach(item => {
-                item.onclick = null;
-            });
-
-            if (selectedAnswer === correctAnswer) {
-                score++;
-                liElement.classList.add('correct');
-            } else {
-                liElement.classList.add('incorrect');
-            }
-
-            // Espera 1 segundo antes de mostrar a próxima pergunta
-            setTimeout(() => {
-                nextQuestion();
-            }, 1000);
+            document.querySelectorAll("#answers li").forEach(item => item.onclick = null);
+            selectedAnswer === correctAnswer ? liElement.classList.add('correct') : liElement.classList.add('incorrect');
+            setTimeout(() => nextQuestion(), 1000);
         }
 
         function nextQuestion() {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                displayQuestion();
-            } else {
-                showScore();
+            if (++currentQuestionIndex < questions.length) displayQuestion();
+            else {
+                document.getElementById("quiz-container").style.display = "none";
+                document.getElementById("score-container").style.display = "block";
+                document.getElementById("score").textContent = `Você acertou ${score} de ${questions.length} questões.`;
             }
         }
 
-        function showScore() {
-            clearInterval(timer);
-            document.getElementById("quiz-container").style.display = "none";
-            document.getElementById("score-container").style.display = "block";
-            document.getElementById("score").textContent = `Você acertou ${score} de ${questions.length} questões.`;
-        }
-
-        function restartQuiz() {
-            currentQuestionIndex = 0;
-            score = 0;
-            timeRemaining = 300;
-
-            document.getElementById("quiz-container").style.display = "block";
-            document.getElementById("score-container").style.display = "none";
-            document.getElementById("timer").textContent = formatTime(timeRemaining);
-
-            startTimer();
-            displayQuestion();
-        }
-
+        function restartQuiz() { currentQuestionIndex = score = 0; displayQuestion(); }
         displayQuestion();
-        startTimer();
     </script>
 </body>
 </html>
+
