@@ -1,0 +1,94 @@
+/* Garantir que o body ocupe toda a tela */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #111;
+  color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Remove qualquer barra de rolagem */
+}
+
+#quiz-container {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #000;
+  width: 100%;
+  max-width: 600px; /* Limita a largura máxima */
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow-y: auto; /* Para que as perguntas se ajustem com rolagem */
+}
+
+/* Título da pergunta */
+#quiz-container h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Botões das respostas */
+#quiz-container button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  font-size: 1.2em; /* Aumentando o tamanho da fonte para facilitar a leitura */
+  background-color: #2b2b2b;
+  color: white;
+  border: 2px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#quiz-container button:hover {
+  background-color: #333;
+  transform: scale(1.05); /* Um leve aumento para o efeito visual */
+}
+
+/* Botão correto = verde */
+button.correto {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  color: #fff !important;
+}
+
+/* Botão errado = vermelho */
+button.errado {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #fff !important;
+}
+
+/* Resolução visível */
+.resolucao {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #ccc;
+  font-weight: bold;
+}
+
+/* Botão de reiniciar */
+#reiniciar {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 12px 24px;
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#reiniciar:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Um leve aumento para o efeito visual */
+}
