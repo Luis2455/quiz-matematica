@@ -8,7 +8,7 @@ const quiz = [
   {
     pergunta: "2. Qual é o valor de x na equação 2x + 3 = 11?",
     opcoes: ["3", "4", "5", "6"],
-    correta: 2,
+    correta: 1,
     resolucao: "2x + 3 = 11 → 2x = 8 → x = 4."
   },
   {
