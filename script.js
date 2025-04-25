@@ -26,13 +26,13 @@ const quiz = [
   {
     pergunta: "5. Qual é o resultado de 2³ + 4²?",
     opcoes: ["20", "24", "28", "16"],
-    correta: 2,
+    correta: 1,
     resolucao: "2³ = 8 e 4² = 16 → 8 + 16 = 24."
   },
   {
     pergunta: "6. Um produto de R$200,00 foi vendido com 25% de desconto. Qual foi o preço final?",
     opcoes: ["R$150,00", "R$160,00", "R$175,00", "R$180,00"],
-    correta: 3,
+    correta: 0,
     resolucao: "25% de 200 = 50 → 200 - 50 = 150."
   },
   {
